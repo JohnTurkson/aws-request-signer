@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk8"))
+    implementation(kotlin("stdlib"))
 }
 
 tasks {
@@ -20,5 +20,9 @@ tasks {
     
     compileTestKotlin {
         kotlinOptions.jvmTarget = "1.8"
+    }
+    
+    jar {
+        configurations.runtimeClasspath.get().forEach { file -> from(zipTree(file.absoluteFile)) }
     }
 }
