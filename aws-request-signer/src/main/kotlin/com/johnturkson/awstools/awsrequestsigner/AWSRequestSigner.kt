@@ -94,7 +94,7 @@ object AWSRequestSigner {
     }
     
     private fun generateDateHeader(date: String, time: String): Header {
-        val dateHeaderName = "Date"
+        val dateHeaderName = "X-Amz-Date"
         val dateHeaderValue = generateDateHeaderValue(date, time)
         return Header(dateHeaderName, dateHeaderValue)
     }
